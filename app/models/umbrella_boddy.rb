@@ -1,0 +1,2 @@
+class UmbrellaBoddy < ApplicationRecord
+end

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organisation: MyString
+  meetingDay: MyString
+  feastDay: MyString
+  patronSaint: MyString
+  motto: MyString
+  slogan: MyString
+
+two:
+  organisation: MyString
+  meetingDay: MyString
+  feastDay: MyString
+  patronSaint: MyString
+  motto: MyString
+  slogan: MyString
