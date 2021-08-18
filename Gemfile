@@ -34,7 +34,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store', '~> 1.0'
 gem 'pg'
-
+gem 'wicked'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

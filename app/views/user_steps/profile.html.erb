@@ -1,0 +1,59 @@
+<h1>Editing User Profile Info</h1>
+
+<%= form_for @user, url: wizard_path do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :age %>
+      <%= form.text_field :age %>
+    </div>
+  
+    <div class="field">
+    <% status = {
+        'male' => 'Male',
+        'female' => 'Female'
+        } 
+      %>
+      <%= form.label :gender %>
+      <% list = status.sort
+        list.each {|x| %>
+            <%= form.radio_button :gender, x[1] %> <%= h(x[0]) %><br />
+          <% } 
+      %>
+      
+    </div>
+
+    <div class="field">
+
+      <% status = {
+        'Single' => 'Single',
+        'Married' => 'Married',
+        'Divorced' => 'Divorced',
+        'Widowed' => 'Widowed',
+        'Seperated' => 'Seperated'
+        } 
+      %>
+      <%= form.label :marriage_status %>
+      <% list = status.sort
+        list.each {|x| %>
+            <%= form.radio_button :marriage_status, x[1] %> <%= h(x[0]) %><br />
+          <% } 
+      %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit %>
+      <%= link_to 'Skip this step', next_wizard_path %>
+    </div>
+  <% end %>
+  
