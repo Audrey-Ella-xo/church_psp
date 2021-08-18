@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+
+<h1>Umbrella Boddies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Organisation</th>
+      <th>Meetingday</th>
+      <th>Feastday</th>
+      <th>Patronsaint</th>
+      <th>Motto</th>
+      <th>Slogan</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @umbrella_boddies.each do |umbrella_boddy| %>
+      <tr>
+        <td><%= umbrella_boddy.organisation %></td>
+        <td><%= umbrella_boddy.meetingDay %></td>
+        <td><%= umbrella_boddy.feastDay %></td>
+        <td><%= umbrella_boddy.patronSaint %></td>
+        <td><%= umbrella_boddy.motto %></td>
+        <td><%= umbrella_boddy.slogan %></td>
+        <td><%= link_to 'Show', umbrella_boddy %></td>
+        <td><%= link_to 'Edit', edit_umbrella_boddy_path(umbrella_boddy) %></td>
+        <td><%= link_to 'Destroy', umbrella_boddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Umbrella Boddy', new_umbrella_boddy_path %>
