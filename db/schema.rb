@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_164444) do
+ActiveRecord::Schema.define(version: 2021_08_17_095946) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
+  enable_extension "plpgsql"
 
   create_table "umbrella_boddies", force: :cascade do |t|
     t.string "organisation"
@@ -33,8 +37,19 @@ ActiveRecord::Schema.define(version: 2021_08_14_164444) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"
     t.string "uid"
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "gender"
+    t.hstore "address"
+    t.date "dob"
+    t.string "marriage_status"
+    t.bigint "umbrella_boddy_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["umbrella_boddy_id"], name: "index_users_on_umbrella_boddy_id"
   end
 
+  add_foreign_key "users", "umbrella_boddies"
 end
