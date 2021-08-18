@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_095946) do
+ActiveRecord::Schema.define(version: 2021_08_18_183824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -42,14 +42,11 @@ ActiveRecord::Schema.define(version: 2021_08_17_095946) do
     t.string "last_name"
     t.integer "age"
     t.string "gender"
-    t.hstore "address"
-    t.date "dob"
     t.string "marriage_status"
-    t.bigint "umbrella_boddy_id"
+    t.date "dob"
+    t.hstore "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["umbrella_boddy_id"], name: "index_users_on_umbrella_boddy_id"
   end
 
-  add_foreign_key "users", "umbrella_boddies"
 end
